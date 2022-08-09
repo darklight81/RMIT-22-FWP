@@ -1,7 +1,9 @@
+import Routing from "../router/Routing";
+
 const Header = () => {
     return (
-        <div className={`btn-primary`}>
-            Test
+        <div className={`header`}>
+            <Routing/>
         </div>
     )
 }

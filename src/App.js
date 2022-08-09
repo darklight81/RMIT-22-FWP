@@ -1,15 +1,27 @@
 import './App.css';
-import ThemeSwitcher from "./view/ThemeSwitcher";
 import Header from "./view/Header";
 import Signup from "./view/Signup";
-import Routing from "./router/Routing";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Login from "./view/Login";
+import Register from "./view/Register";
+
+function Error() {
+    return null;
+}
 
 function App() {
   return (
     <div className="App">
-        <div className={`container`}>
-            <Routing/>
-        </div>
+        <BrowserRouter>
+            <Header/>
+
+            <Routes>
+                <Route path="/" element={<Signup/>} />
+                <Route path="/login" element={<Login/>} />
+                <Route path="/register" element={<Register/>} />
+                <Route path="*" element={<Error/>} />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
