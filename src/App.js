@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import ThemeSwitcher from "./view/ThemeSwitcher";
+import Header from "./view/Header";
+import Signup from "./view/Signup";
+import Routing from "./router/Routing";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className={`container`}>
+            <Routing/>
+        </div>
     </div>
   );
 }
