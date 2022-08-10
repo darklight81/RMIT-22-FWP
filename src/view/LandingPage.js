@@ -1,7 +1,7 @@
 function LandingPage() {
     return (
         <div className={`error`}>
-            This is a landing page.
+            This is a landing page. More text...
         </div>
     );
 }
