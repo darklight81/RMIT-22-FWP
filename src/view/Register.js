@@ -14,6 +14,9 @@ function Register() {
                     <input type="email" placeholder="Password" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                     <div id="passwordHelp" className="form-text">Password restrictions.</div>
                 </div>
+                <div className="mb-3">
+                    <button className={`btn btn-outline-primary`} type="submit"> Sign up! </button>
+                </div>
             </form>
         </div>
     );
