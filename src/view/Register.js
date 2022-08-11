@@ -11,6 +11,7 @@ function Register(props) {
     });
 
     let err;
+
     // validates the passwords and checks if the email isn't already registered.
     function validate(user, password) {
         if (user.password !== password){
@@ -20,12 +21,14 @@ function Register(props) {
 
         if (registeredUsers === null)
             return
+
         for (let i = 0; i < registeredUsers.length; i++)
             if (registeredUsers[i].email === user.email)
                 return "Email already in use!"
 
     }
 
+    // handles the submission of the register form and saves the data to localStorage
     function handleSubmit(e) {
         e.preventDefault()
         const user = {
