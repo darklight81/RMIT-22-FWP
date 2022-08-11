@@ -9,12 +9,20 @@ function Register(props) {
         email: '',
         password: ''
     });
+
     let err;
-    // validates the password
+    // validates the passwords and checks if the email isn't already registered.
     function validate(user, password) {
         if (user.password !== password){
             return 'Passwords don\'t match!'
         }
+        const registeredUsers = JSON.parse(localStorage.getItem('users'))
+
+        if (registeredUsers === null)
+            return
+        for (let i = 0; i < registeredUsers.length; i++)
+            if (registeredUsers[i].email === user.email)
+                return "Email already in use!"
 
     }
 
@@ -26,7 +34,6 @@ function Register(props) {
             password: e.target[2].value
         }
 
-        //todo: Validation of inputs
         err = validate(user, e.target[3].value)
         if (err){
             console.log(err)
@@ -34,8 +41,14 @@ function Register(props) {
             error.innerText = err
         }
         else {
+            // Get all registered users and append the new one.
             setUser(user)
-            localStorage.setItem('user', JSON.stringify(user))
+            let registered = JSON.parse(localStorage.getItem('users'))
+            if (registered === null)
+                registered = []
+
+            registered.push(user)
+            localStorage.setItem('users', JSON.stringify(registered))
             navigate('/')
         }
     }
@@ -52,6 +65,7 @@ function Register(props) {
                 <div className="mb-3">
                     <input type="password" placeholder="Password" className="form-control" id="examplePassword" aria-describedby="passwordHelp" required/>
                     <div id="passwordHelp" className="form-text">Must contain at least one number, uppercase and lowercase letter, and more than 7 characters.</div>
+                    {/*Password validation from: https://www.w3schools.com/howto/howto_js_password_validation.asp*/}
                 </div>
                 <div className="mb-3">
                     <input type="password" placeholder="Confirm password" className="form-control" id="examplePasswordConfirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" aria-describedby="passwordConfirmHelp" required/>
