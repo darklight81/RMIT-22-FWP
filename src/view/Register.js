@@ -1,5 +1,5 @@
 import "../css/Register.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 function Register(props) {
@@ -9,7 +9,6 @@ function Register(props) {
         email: '',
         password: ''
     });
-
     let err;
 
     // validates the passwords and checks if the email isn't already registered.

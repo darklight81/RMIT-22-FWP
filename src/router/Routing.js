@@ -1,13 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import {Route, Routes} from "react-router-dom";
+import LandingPage from "../view/LandingPage";
+import Login from "../view/Login";
+import Register from "../view/Register";
+import Error from "../view/Error";
 
-export default function Routing() {
-    return (
-            <nav className={`col-6 mx-2`}>
-                <div className={`row justify-content-end`}>
-                    <NavLink to="/" className={`text-decoration-none text-light col-2`}>Home </NavLink>
-                    <NavLink to="/login" className={`text-decoration-none text-light col-2`}>Login </NavLink>
-                    <NavLink to="/register" className={`text-decoration-none text-light col-2`}>Sign up</NavLink>
-                </div>
-            </nav>
-    );
+function Routing(){
+    return(
+        <Routes>
+            <Route path="/" element={<LandingPage/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="*" element={<Error/>} />
+        </Routes>
+    )
 }
+
+export default Routing;
