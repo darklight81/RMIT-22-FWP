@@ -1,7 +1,14 @@
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
-function Login() {
+function Login(props) {
     const navigate = useNavigate();
+
+    // user is already logged in
+    useEffect(() => {
+        if(props.user.name)
+            navigate('/')
+    }, [props.user.name, navigate])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -13,7 +20,8 @@ function Login() {
         for (let i = 0; i < users.length; i++){
             if (user.email === users[i].email && user.password === users[i].password){
                 // log the user in
-                localStorage.setItem('loggedUser', JSON.stringify(user))
+                localStorage.setItem('loggedUser', JSON.stringify(users[i]))
+                props.setUser({name: users[i].name, email: users[i].email, password: users[i].password})
                 navigate('/')
                 break;
             }

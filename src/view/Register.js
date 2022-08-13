@@ -1,14 +1,14 @@
 import "../css/Register.css"
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 function Register(props) {
     const navigate = useNavigate();
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        password: ''
-    });
+
+    useEffect(() => {
+        if(props.user.name)
+            navigate('/')
+    }, [props.user.name, navigate])
     let err;
 
     // validates the passwords and checks if the email isn't already registered.
@@ -43,14 +43,16 @@ function Register(props) {
             error.innerText = err
         }
         else {
-            // Get all registered users and append the new one.
-            setUser(user)
+            // Get all registered users and append the new one and log the user in.
             let registered = JSON.parse(localStorage.getItem('users'))
             if (registered === null)
                 registered = []
 
             registered.push(user)
             localStorage.setItem('users', JSON.stringify(registered))
+
+            localStorage.setItem('loggedUser', JSON.stringify(user))
+            props.setUser({password: user.password, name: user.name, email: user.email})
             navigate('/')
         }
     }
