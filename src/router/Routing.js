@@ -3,6 +3,8 @@ import LandingPage from "../view/LandingPage";
 import Login from "../view/Login";
 import Register from "../view/Register";
 import Error from "../view/Error";
+import Profile from "../view/Profile";
+import Logout from "../view/Logout";
 
 function Routing(props){
     return(
@@ -10,6 +12,8 @@ function Routing(props){
             <Route path="/" element={<LandingPage user={props.user}/>} />
             <Route path="/login" element={<Login user={props.user} setUser={props.setUser}/>} />
             <Route path="/register" element={<Register user={props.user} setUser={props.setUser}/>} />
+            <Route path="/profile" element={<Profile user={props.user} setUser={props.setUser}/>} />
+            <Route path="/logout" element={<Logout user={props.user} setUser={props.setUser}/>} />
             <Route path="*" element={<Error/>} />
         </Routes>
     )

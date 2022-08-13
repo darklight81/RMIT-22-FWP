@@ -18,8 +18,8 @@ function NavigationBar(props) {
             <nav className={`col-6 mx-2`}>
                 <div className={`row justify-content-end`}>
                     <NavLink to="/" className={`text-decoration-none text-light col-2`}>Home </NavLink>
-                    <NavLink to="/login" className={`text-decoration-none text-light col-2`}>My profile </NavLink>
-                    <NavLink to="/register" className={`text-decoration-none text-light col-2`}>Logout</NavLink>
+                    <NavLink to="/profile" className={`text-decoration-none text-light col-2`}>My profile </NavLink>
+                    <NavLink to="/logout" className={`text-decoration-none text-light col-2`}>Logout</NavLink>
                 </div>
             </nav>
         );
