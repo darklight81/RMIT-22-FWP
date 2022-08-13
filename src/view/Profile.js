@@ -1,9 +1,25 @@
 import "../css/Profile.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faTrashCan} from "@fortawesome/free-solid-svg-icons";
+import {useNavigate} from "react-router-dom";
+
 function Profile(props){
     const date = new Date(props.user.joined)
-    console.log(date.getDate())
+    const navigate = useNavigate()
+
+    function handleDelete() {
+        let users = JSON.parse(localStorage.getItem('users'))
+        for (let i = 0; i < users.length; i++){
+            if (users[i].email === props.user.email){
+                users.splice(i, 1)
+                localStorage.setItem('users', JSON.stringify(users))
+            }
+        }
+        props.setUser({})
+        localStorage.removeItem('loggedUser')
+        navigate('/')
+    }
+
     return(
         <div className={`row justify-content-center mt-5`}>
             <div className={`col-6 profile pt-3 pb-3 rounded-3 shadow p-3`}>
@@ -17,7 +33,7 @@ function Profile(props){
                     </div>
                     <div className={`col-3 actions d-flex flex-column justify-content-center`}>
                         <button type="button" className="btn btn-primary"><FontAwesomeIcon icon={faPencil}/> Edit </button>
-                        <button type="button" className="btn btn-primary mt-3"><FontAwesomeIcon icon={faTrashCan} /> Delete </button>
+                        <button type="button" className="btn btn-primary mt-3" onClick={handleDelete}><FontAwesomeIcon icon={faTrashCan} /> Delete </button>
                     </div>
                 </div>
                 <hr className={`solid`}/>
