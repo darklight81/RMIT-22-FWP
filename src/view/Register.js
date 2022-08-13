@@ -33,7 +33,8 @@ function Register(props) {
         const user = {
             name: e.target[0].value,
             email:  e.target[1].value,
-            password: e.target[2].value
+            password: e.target[2].value,
+            joined: Date()
         }
 
         err = validate(user, e.target[3].value)
@@ -52,7 +53,7 @@ function Register(props) {
             localStorage.setItem('users', JSON.stringify(registered))
 
             localStorage.setItem('loggedUser', JSON.stringify(user))
-            props.setUser({password: user.password, name: user.name, email: user.email})
+            props.setUser({password: user.password, name: user.name, email: user.email, joined: user.joined})
             navigate('/')
         }
     }

@@ -9,12 +9,13 @@ function App() {
     const [user, setUser] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        joined: ''
     });
     useEffect(() => {
         if (localStorage.getItem('loggedUser')){
             const loggedUser = JSON.parse(localStorage.getItem('loggedUser'))
-            setUser({password: loggedUser.password, email: loggedUser.email, name: loggedUser.name})
+            setUser({password: loggedUser.password, email: loggedUser.email, name: loggedUser.name, joined: loggedUser.joined})
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
