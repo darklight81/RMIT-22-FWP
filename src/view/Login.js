@@ -21,7 +21,7 @@ function Login(props) {
             if (user.email === users[i].email && user.password === users[i].password){
                 // log the user in
                 localStorage.setItem('loggedUser', JSON.stringify(users[i]))
-                props.setUser({name: users[i].name, email: users[i].email, password: users[i].password})
+                props.setUser({name: users[i].name, email: users[i].email, password: users[i].password, joined: users[i].joined})
                 navigate('/')
                 break;
             }
