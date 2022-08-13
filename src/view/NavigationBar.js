@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
-export default function NavigationBar() {
-    return (
+function NavigationBar(props) {
+    if (!props.user.name){
+        return (
             <nav className={`col-6 mx-2`}>
                 <div className={`row justify-content-end`}>
                     <NavLink to="/" className={`text-decoration-none text-light col-2`}>Home </NavLink>
@@ -9,5 +10,19 @@ export default function NavigationBar() {
                     <NavLink to="/register" className={`text-decoration-none text-light col-2`}>Sign up</NavLink>
                 </div>
             </nav>
-    );
+        );
+    }
+
+    else{
+        return (
+            <nav className={`col-6 mx-2`}>
+                <div className={`row justify-content-end`}>
+                    <NavLink to="/" className={`text-decoration-none text-light col-2`}>Home </NavLink>
+                    <NavLink to="/login" className={`text-decoration-none text-light col-2`}>My profile </NavLink>
+                    <NavLink to="/register" className={`text-decoration-none text-light col-2`}>Logout</NavLink>
+                </div>
+            </nav>
+        );
+    }
 }
+export default NavigationBar

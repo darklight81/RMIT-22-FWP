@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
         <BrowserRouter>
-            <Header ser={user} setUser={setUser}/>
+            <Header user={user} setUser={setUser}/>
             <div className={`container Body`}>
                 <Routing user={user} setUser={setUser}/>
             </div>
