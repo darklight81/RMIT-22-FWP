@@ -5,7 +5,8 @@ function PostForm(props){
         const post = {
             content: e.target[0].value,
             author: props.user.name,
-            time: Date()
+            time: Date(),
+            replies: []
         }
 
         // todo: validate the content of the push
