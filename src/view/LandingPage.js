@@ -1,11 +1,15 @@
+import PostForm from "./PostForm";
+import Dashboard from "./Dashboard";
+
 function LandingPage(props) {
     let greetings = 'Stranger'
     if (props.user.name){
         greetings = props.user.name
     }
         return (
-            <div className={`error`}>
-                This is a landing page. Hello {greetings}!
+            <div className={`landing-page`}>
+                <PostForm user={props.user}/>
+                <Dashboard/>
             </div>
         );
 }
