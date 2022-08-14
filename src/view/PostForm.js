@@ -8,8 +8,9 @@ function PostForm(props){
             time: Date(),
             replies: []
         }
+        if (post.content.length > 250 || post.content.length === 0)
+            return false // add an error to show to the user
 
-        // todo: validate the content of the post
         // todo: add possibility of uploading a picture
         let posts = JSON.parse(localStorage.getItem('posts'))
         if (posts === null)
