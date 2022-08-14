@@ -33,7 +33,7 @@ function Login(props) {
 
     return (
         <div className={`row justify-content-center`}>
-            <form className={`col-4 mt-5 pt-3 form-rectangle rounded-3 shadow p-3`} onSubmit={e => handleSubmit(e)}>
+            <form className={`col-4 pt-3 form-rectangle rounded-3 shadow p-3`} onSubmit={e => handleSubmit(e)}>
                 <div className="mb-3">
                     <input type="email" placeholder="Email address" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp"/>
                 </div>
