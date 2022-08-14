@@ -2,14 +2,17 @@ import PostForm from "./PostForm";
 import Dashboard from "./Dashboard";
 
 function LandingPage(props) {
-    let greetings = 'Stranger'
+    let content = <div> Hello Stranger </div>
     if (props.user.name){
-        greetings = props.user.name
+        content =
+            <div>
+                <PostForm user={props.user}/>
+                <Dashboard user={props.user}/>
+            </div>
     }
         return (
             <div className={`landing-page`}>
-                <PostForm user={props.user}/>
-                <Dashboard/>
+                {content}
             </div>
         );
 }

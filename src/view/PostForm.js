@@ -9,12 +9,12 @@ function PostForm(props){
             replies: []
         }
 
-        // todo: validate the content of the push
+        // todo: validate the content of the post
         // todo: add possibility of uploading a picture
         let posts = JSON.parse(localStorage.getItem('posts'))
         if (posts === null)
             posts = []
-        posts.push(post)
+        posts.unshift(post)
         localStorage.setItem('posts', JSON.stringify(posts))
     }
 
