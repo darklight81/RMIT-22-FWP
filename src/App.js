@@ -23,7 +23,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
             <Header user={user} setUser={setUser}/>
-            <div className={`container Body`}>
+            <div className={`container Body mb-5 mt-5`}>
                 <Routing user={user} setUser={setUser}/>
             </div>
         </BrowserRouter>
