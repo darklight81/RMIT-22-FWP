@@ -20,6 +20,10 @@ function Profile(props){
         navigate('/')
     }
 
+    function handleEdit() {
+        navigate('/editProfile')
+    }
+
     return(
         <div className={`row justify-content-center mt-5`}>
             <div className={`col-6 profile pt-3 pb-3 rounded-3 shadow p-3`}>
@@ -32,7 +36,7 @@ function Profile(props){
                         <span className={`email`}> {props.user.email} </span>
                     </div>
                     <div className={`col-3 actions d-flex flex-column justify-content-center`}>
-                        <button type="button" className="btn btn-primary"><FontAwesomeIcon icon={faPencil}/> Edit </button>
+                        <button type="button" className="btn btn-primary" onClick={handleEdit}><FontAwesomeIcon icon={faPencil}/> Edit </button>
                         <button type="button" className="btn btn-primary mt-3" onClick={handleDelete}><FontAwesomeIcon icon={faTrashCan} /> Delete </button>
                     </div>
                 </div>
