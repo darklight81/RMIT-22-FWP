@@ -41,7 +41,7 @@ function Login(props) {
                     <input type="password" placeholder="Password" className="form-control" id="examplePassword" aria-describedby="passwordHelp" required/>
                 </div>
                 <div className="mb-3">
-                    <button className={`btn btn-outline-primary`} type="submit"> Sign in! </button>
+                    <button className={`btn btn-outline-primary`} type="submit" > Sign in! </button>
                 </div>
                 <div className="mb-3" id={`error`}>  </div>
             </form>

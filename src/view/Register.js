@@ -76,7 +76,7 @@ function Register(props) {
                     <input type="password" placeholder="Confirm password" className="form-control" id="examplePasswordConfirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" aria-describedby="passwordConfirmHelp" required/>
                 </div>
                 <div className="mb-3">
-                    <button className={`btn btn-outline-primary`} type="submit"> Sign up! </button>
+                    <button className={`btn btn-outline-primary`} type="submit" > Sign up! </button>
                 </div>
                 <div className="mb-3" id={`error`}>  </div>
             </form>
