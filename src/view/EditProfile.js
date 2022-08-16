@@ -1,6 +1,7 @@
+
 function EditProfile(props){
     function handleSubmit(e) {
-
+        e.preventDefault()
     }
 
     return (

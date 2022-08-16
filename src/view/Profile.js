@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import Modal from 'react-modal';
 import {useState} from "react";
 
-const customStyles = {
+const modalStyle = {
     content: {
         top: '50%',
         left: '50%',
@@ -81,9 +81,9 @@ function Profile(props){
                             isOpen={modalIsOpen}
                             onAfterOpen={afterOpenModal}
                             onRequestClose={closeModal}
-                            style={customStyles}
-                            contentLabel="Delete Modal"
-                        >
+                            style={modalStyle}
+                            contentLabel="Delete Modal">
+
                             <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Are you sure you want to delete your account?</h2>
                             <div className={`row justify-content-center`}>
                                 <div className={`col-4`}>
