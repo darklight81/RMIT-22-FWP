@@ -1,4 +1,4 @@
-import PostForm from "./PostForm";
+import PostForm from "../components/PostForm";
 import Dashboard from "./Dashboard";
 
 function LandingPage(props) {

@@ -4,7 +4,7 @@ import Login from "../view/Login";
 import Register from "../view/Register";
 import Error from "../view/Error";
 import Profile from "../view/Profile";
-import Logout from "../view/Logout";
+import Logout from "../components/Logout";
 import EditProfile from "../view/EditProfile";
 
 function Routing(props){

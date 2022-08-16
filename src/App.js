@@ -1,7 +1,7 @@
 import './css/App.css';
-import Header from "./view/Header";
+import Header from "./components/Header";
 import {BrowserRouter} from "react-router-dom";
-import Footer from "./view/Footer";
+import Footer from "./components/Footer";
 import Routing from "./router/Routing";
 import {useEffect, useState} from "react";
 
