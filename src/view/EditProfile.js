@@ -1,6 +1,11 @@
+import {useNavigate} from "react-router-dom";
+
 function EditProfile(props){
+    const navigator = useNavigate()
     function handleSubmit(e) {
         e.preventDefault()
+        //todo: persist the edit
+        navigator('/profile')
     }
 
     return (

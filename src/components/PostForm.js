@@ -1,5 +1,4 @@
 function PostForm(props){
-
     function handleSubmit(e) {
         e.preventDefault()
         const post = {
@@ -17,6 +16,9 @@ function PostForm(props){
             posts = []
         posts.unshift(post)
         localStorage.setItem('posts', JSON.stringify(posts))
+        // todo: fix this to not reload the whole page?
+        // eslint-disable-next-line no-restricted-globals
+        location.reload()
     }
 
     return (
