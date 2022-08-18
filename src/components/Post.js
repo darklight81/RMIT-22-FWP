@@ -54,8 +54,20 @@ function Post(props){
     // edits post
     function handleEdit(e) {
         e.preventDefault()
-        console.log(e.target[0].value)
-        // todo
+        const newVal = e.target[0].value
+        if( !(newVal.length > 250 || newVal.length === 0) ){
+            props.post.content = newVal
+            let posts = JSON.parse(localStorage.getItem('posts'))
+            for (let i = 0; i < posts.length; i++){
+                if (posts[i].time === props.post.time && posts[i].author === props.post.author){
+                    posts[i].content = newVal;
+                    localStorage.setItem('posts', JSON.stringify(posts))
+                    break
+                }
+            }
+            closeModal()
+        }
+        // todo: State an error if the post doesn't go through validation
     }
 
     // adds the ability to delete/edit posts that was posted by the logged user
