@@ -22,7 +22,7 @@ function Login(props) {
                 // log the user in
                 localStorage.setItem('loggedUser', JSON.stringify(users[i]))
                 props.setUser({name: users[i].name, email: users[i].email, password: users[i].password, joined: users[i].joined})
-                navigate('/')
+                navigate('/auth')
                 break;
             }
         }

@@ -6,6 +6,7 @@ import Error from "../view/Error";
 import Profile from "../view/Profile";
 import Logout from "../components/Logout";
 import EditProfile from "../view/EditProfile";
+import Authentication from "../view/Authentication";
 
 function Routing(props){
     return(
@@ -16,6 +17,7 @@ function Routing(props){
             <Route path="/profile" element={<Profile user={props.user} setUser={props.setUser}/>} />
             <Route path="/logout" element={<Logout user={props.user} setUser={props.setUser}/>} />
             <Route path="/editProfile" element={<EditProfile user={props.user} setUser={props.setUser}/>} />
+            <Route path="/auth" element={<Authentication user={props.user} setUser={props.setUser}/>} />
             <Route path="*" element={<Error/>} />
         </Routes>
     )

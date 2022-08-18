@@ -4,8 +4,10 @@ function EditProfile(props){
     const navigator = useNavigate()
     function handleSubmit(e) {
         e.preventDefault()
-        //todo: persist the edit
-        navigator('/profile')
+        if (e.target[1].value === e.target[2].value){
+            navigator('/profile')
+        }
+        // todo: Show cue that the password is not correct
     }
 
     return (

@@ -23,13 +23,12 @@ function Post(props){
     let postOptions = null
 
     let subtitle;
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false)
     function openModal() {
         setIsOpen(true);
     }
 
     function afterOpenModal() {
-        // references are now sync'd and can be accessed.
         subtitle.style.color = '#415A80';
     }
 
@@ -71,6 +70,7 @@ function Post(props){
     }
 
     // adds the ability to delete/edit posts that was posted by the logged user
+    // todo: change this to and email as the name is not unique
     if (props.user.name === props.post.author){
         postOptions =
             <div className={`post-options`}>
