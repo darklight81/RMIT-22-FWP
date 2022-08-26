@@ -1,4 +1,9 @@
 .footer{
     background-color: #415A80;
     height: 10vh;
+    position:fixed;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: 2;
 }
