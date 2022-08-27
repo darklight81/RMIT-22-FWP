@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import {useContext, useState} from "react";
 import {PostsContext} from "./PostsContext";
 import "../css/Modal.css"
+import "../css/PostForm.css"
 
 const modalStyle = {
     content: {
@@ -123,9 +124,12 @@ function Post(props){
                         <div className={'author'}>
                             <b>{props.post.author} </b>
                             {date}
-                            {postOptions}
-                        </div>
-                        {props.post.content}
+                            <p></p>
+                            
+                        </div> 
+                        <p className="content">{props.post.content}</p>
+                        {postOptions}
+                       
                     </div>
                 </div>
             </div>

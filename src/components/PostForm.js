@@ -1,6 +1,7 @@
 import {useContext} from "react";
 import {PostsContext} from "./PostsContext";
 
+
 function PostForm(props){
     const {posts, setPosts} = useContext(PostsContext)
 
