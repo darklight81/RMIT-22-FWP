@@ -1,13 +1,13 @@
 import PostForm from "../components/PostForm";
 import Dashboard from "./Dashboard";
 import {PostsContext} from "../components/PostsContext";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 function LandingPage(props) {
     const [posts, setPosts] = useState(JSON.parse(localStorage.getItem('posts')))
     let content = <div className={'row m-0 p-0'}>
         <img src={require('../assets/dashboard-background.jpg')} className={"img-fluid w-100"} alt="background" />
     </div>
-    if (props.user.name){
+    if (props.user){
         content =
             <PostsContext.Provider value={{posts, setPosts}}>
                 <div className={'mb-5 mt-5'}>

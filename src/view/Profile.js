@@ -49,9 +49,14 @@ function Profile(props){
         }
 
         // deletes the posts of the user
-        for (let i = 0 ; i < posts.length; i++)
-            if (posts[i].author === props.user.name)
-                posts.splice(i, 1)
+        let index = posts.length - 1;
+        while (index >= 0) {
+            if (posts[index].author === props.user.name)
+                posts.splice(index, 1);
+
+            index -= 1;
+        }
+
         localStorage.setItem('posts', JSON.stringify(posts))
 
         props.setUser({})

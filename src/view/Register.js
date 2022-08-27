@@ -6,9 +6,9 @@ function Register(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(props.user.name)
+        if(props.user)
             navigate('/')
-    }, [props.user.name, navigate])
+    }, [props.user, navigate])
     let err;
 
     // validates the passwords and checks if the email isn't already registered.
@@ -34,6 +34,7 @@ function Register(props) {
             name: e.target[0].value,
             email:  e.target[1].value,
             password: e.target[2].value,
+            phone: e.target[4].value,
             joined: Date()
         }
 
@@ -74,6 +75,9 @@ function Register(props) {
                 </div>
                 <div className="mb-3">
                     <input type="password" placeholder="Confirm password" className="form-control" id="examplePasswordConfirm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" aria-describedby="passwordConfirmHelp" required/>
+                </div>
+                <div className="mb-3">
+                    <input id="phone" name="phone" className="form-control" placeholder="+0123456789" pattern="^\+[0-9]{7,}$" required/>
                 </div>
                 <div className="mb-3">
                     <button className={`btn btn-outline-primary`} type="submit"> Sign up! </button>

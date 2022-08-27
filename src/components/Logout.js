@@ -4,8 +4,8 @@ import {useEffect} from "react";
 function Logout(props){
     const navigate = useNavigate()
     useEffect(() => {
-        props.setUser({})
         localStorage.removeItem('loggedUser')
+        props.setUser(JSON.parse(localStorage.getItem('loggedUser')))
         navigate('/')
     }, [props, navigate])
 }

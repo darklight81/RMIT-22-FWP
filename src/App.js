@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import {BrowserRouter} from "react-router-dom";
 import Footer from "./components/Footer";
 import Routing from "./router/Routing";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 function App() {
     const [user, setUser] = useState( JSON.parse(localStorage.getItem('loggedUser')));

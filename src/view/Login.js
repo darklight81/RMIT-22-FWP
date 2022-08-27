@@ -6,9 +6,9 @@ function Login(props) {
 
     // user is already logged in
     useEffect(() => {
-        if(props.user.name)
+        if(props.user)
             navigate('/')
-    }, [props.user.name, navigate])
+    }, [props.user, navigate])
 
     function handleSubmit(e) {
         e.preventDefault()
