@@ -3,6 +3,7 @@ import {faPencil, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
 import {useContext, useState} from "react";
 import {PostsContext} from "./PostsContext";
+import "../css/Modal.css"
 
 const modalStyle = {
     content: {
@@ -12,6 +13,9 @@ const modalStyle = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        width:500,
+        height: 300,
+        
     },
 };
 
@@ -69,32 +73,41 @@ function Post(props){
 
     // adds the ability to delete/edit posts that was posted by the logged user
     // todo: change this to an email as the name is not unique
-    if (props.user.name === props.post.author){
+    if (props.user.name=== props.post.author){
         postOptions =
             <div className={`post-options`}>
                 <button type="button" className="btn btn-primary" onClick={openModal}><FontAwesomeIcon icon={faPencil}/> Edit </button>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={modalStyle}
-                    contentLabel="Delete Modal">
+                
+                    <Modal
+                        isOpen={modalIsOpen}
+                        onAfterOpen={afterOpenModal}
+                        onRequestClose={closeModal}
+                        style={modalStyle}
+                        contentLabel="Delete Modal"
+                        >
+                        
 
-                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit your post</h2>
-                    <form onSubmit={ e => handleEdit(e)}>
-                        <div className={`row justify-content-center`}>
-                            <div className={`col-3`}>
-                                <input type={`text`}/>
+                        <h2 ref={(_subtitle) => (subtitle = _subtitle)} className={`row justify-content-center`} >Edit Your Post</h2>
+                        <form onSubmit={ e => handleEdit(e)}>
+                            <div className={`row justify-content-center`}>
+                                <div className={`col-4`}>
+                                    <input type={`text`}/>
+                                    <p></p>
+                                </div>
                             </div>
-                        </div>
-                        <div className={`row justify-content-center`}>
-                            <div className={`col-4`}>
-                                <button className="btn btn-primary mx-1" onClick={closeModal}>Cancel</button>
-                                <button type={`submit`} className="btn btn-primary mx-1">Edit</button>
+                            <div className={`row justify-content-center`}>
+                                <div className={`col-1`}>
+                                    <button className="btn btn-primary  row justify-content-center " onClick={closeModal}>Cancel</button>
+                                    <p></p>
+                                    <button type={`submit`} className="btn btn-primary row justify-content-center">Edit</button>
+                                    
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </Modal>
+                        </form>
+                    </Modal>
+                
+                <p></p>
+                <p></p>
                 <button type="button" className="btn btn-primary" onClick={handleDelete}><FontAwesomeIcon icon={faTrashCan} /> Delete </button>
             </div>
     }

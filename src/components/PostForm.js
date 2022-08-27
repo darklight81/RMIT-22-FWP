@@ -27,6 +27,7 @@ function PostForm(props){
         <div className={`post-form`}>
             <form onSubmit={e => handleSubmit(e)}>
                 <input type="textarea" placeholder="Share your thoughts..."/>
+                
                 <button type="submit"> Post </button>
             </form>
         </div>
