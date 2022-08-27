@@ -2,6 +2,9 @@ import {RAPIDAPI_KEY, SMSAPI_KEY} from "../env";
 import {useNavigate} from "react-router-dom";
 
 function Authentication(props){
+    const tmpUser = JSON.parse(localStorage.getItem('toBeLoggedUser'))
+    const phone = tmpUser.phone
+    console.log(phone)
     const navigate = useNavigate()
     let secret;
     function handleSubmit(e){
@@ -61,7 +64,7 @@ function Authentication(props){
                 </div>
                 <div className={`row justify-content-center d-flex flex-row`}>
                     <div className=" col-4">
-                        <button className={`btn btn-outline-primary`} onClick={ e => sendSMS(e,'+421918545034')}> Send SMS </button>
+                        <button className={`btn btn-outline-primary`} onClick={ e => sendSMS(e,{phone})}> Send SMS </button>
                     </div>
                     <div className="col-4">
                         <button className={`btn btn-outline-primary`} type="submit"> Submit! </button>
