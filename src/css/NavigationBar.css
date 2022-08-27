@@ -1,0 +1,11 @@
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+}
+nav a:hover{
+    color: black;
+    text-align: center;
+}
