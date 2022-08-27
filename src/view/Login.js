@@ -32,7 +32,7 @@ function Login(props) {
 
     return (
         <div className={`row justify-content-center`}>
-            <form className={`col-4 pt-3 form-rectangle rounded-3 shadow p-3`} onSubmit={e => handleSubmit(e)}>
+            <form className={`col-4 mt-5 pt-3 form-rectangle rounded-3 shadow p-3`} onSubmit={e => handleSubmit(e)}>
                 <div className="mb-3">
                     <input type="email" placeholder="Email address" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp"/>
                 </div>
@@ -40,7 +40,7 @@ function Login(props) {
                     <input type="password" placeholder="Password" className="form-control" id="examplePassword" aria-describedby="passwordHelp" required/>
                 </div>
                 <div className="mb-3">
-                    <button className={`btn btn-outline-primary`} type="submit"> Sign in! </button>
+                    <button className={`btn btn-outline-primary`} type="submit" > Sign in! </button>
                 </div>
                 <div className="mb-3" id={`error`}>  </div>
             </form>
