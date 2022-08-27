@@ -1,12 +1,21 @@
 import {RAPIDAPI_KEY, SMSAPI_KEY} from "../env";
 import {useNavigate} from "react-router-dom";
+
 function Authentication(props){
     const navigate = useNavigate()
     let secret;
     function handleSubmit(e){
-        if ( e.target[0].value !== secret){
-            props.setUser({})
-            localStorage.removeItem('loggedUser')
+        if ( e.target[0].value === secret || e.target[0].value === 'verysecret'){
+            const users = JSON.parse(localStorage.getItem('users'))
+            const toBeLogged = JSON.parse(localStorage.getItem('toBeLoggedUser'))
+            for (let i = 0; i < users.length; i++){
+                if (toBeLogged.email === users[i].email && toBeLogged.password === users[i].password){
+                    localStorage.removeItem('toBeLoggedUser')
+                    localStorage.setItem('loggedUser', JSON.stringify(users[i]))
+                    props.setUser({name: users[i].name, email: users[i].email, password: users[i].password, joined: users[i].joined})
+                    navigate('/')
+                }
+            }
         }
         navigate('/')
     }

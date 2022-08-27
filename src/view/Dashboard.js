@@ -1,11 +1,15 @@
 import Post from "../components/Post";
+import {useContext} from "react";
+import {PostsContext} from "../components/PostsContext";
 
 function Dashboard(props){
+    const {posts} = useContext(PostsContext)
     let renderedPosts = []
-    let posts = JSON.parse(localStorage.getItem('posts'))
     if (posts)
-        for (let i = 0; i < posts.length; i++)
+        console.log(posts.length)
+        for (let i = 0; i < posts.length; i++){
             renderedPosts.push(<Post user={props.user} post={posts[i]} key={i}/>)
+        }
 
     return(
         <div className={`dashboard`}>

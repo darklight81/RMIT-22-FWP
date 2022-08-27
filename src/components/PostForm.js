@@ -1,4 +1,9 @@
+import {useContext} from "react";
+import {PostsContext} from "./PostsContext";
+
 function PostForm(props){
+    const {posts, setPosts} = useContext(PostsContext)
+
     function handleSubmit(e) {
         e.preventDefault()
         const post = {
@@ -11,14 +16,11 @@ function PostForm(props){
             return false // add an error to show to the user
 
         // todo: add possibility of uploading a picture
-        let posts = JSON.parse(localStorage.getItem('posts'))
         if (posts === null)
-            posts = []
+            setPosts([])
         posts.unshift(post)
+        setPosts([...posts])
         localStorage.setItem('posts', JSON.stringify(posts))
-        // todo: fix this to not reload the whole page?
-        // eslint-disable-next-line no-restricted-globals
-        location.reload()
     }
 
     return (
