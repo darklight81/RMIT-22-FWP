@@ -60,28 +60,7 @@ function Profile(props){
     }
 
     function handleEdit() {
-        //navigate('/editProfile')
-        /*
-        const encodedParams = new URLSearchParams();
-        encodedParams.append("to", "+421918545034");
-        encodedParams.append("p", "ETqgYRy8NiEjvOZwUHqayDUFUnrdTwUSBBss9Lp4Sw0VlVEXJD63tbEJ6op7Dglw");
-        encodedParams.append("text", "Dear customer. We want to say thanks for your trust. Use code MINUS10 for 10 % discount on your next order!");
-
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded',
-                'X-RapidAPI-Key': '869b01e0afmshe70745459c7c92cp1f72abjsn10896e1fbfc6',
-                'X-RapidAPI-Host': 'sms77io.p.rapidapi.com'
-            },
-            body: encodedParams
-        };
-
-        fetch('https://sms77io.p.rapidapi.com/sms', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
-         */
+        navigate('/editProfile')
     }
 
     return(

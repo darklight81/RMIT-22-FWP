@@ -20,8 +20,7 @@ function Login(props) {
         for (let i = 0; i < users.length; i++){
             if (user.email === users[i].email && user.password === users[i].password){
                 // log the user in
-                localStorage.setItem('loggedUser', JSON.stringify(users[i]))
-                props.setUser({name: users[i].name, email: users[i].email, password: users[i].password, joined: users[i].joined})
+                localStorage.setItem('toBeLoggedUser', JSON.stringify(users[i]))
                 navigate('/auth')
                 break;
             }

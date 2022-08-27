@@ -1,7 +1,8 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPencil, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {PostsContext} from "./PostsContext";
 
 const modalStyle = {
     content: {
@@ -15,7 +16,8 @@ const modalStyle = {
 };
 
 function Post(props){
-
+    const {posts, setPosts} = useContext(PostsContext)
+    let tmpPosts = posts
     let options = { year: 'numeric', month: 'short', day: 'numeric' };
     const tmp = new Date(props.post.time)
     const date = new Intl.DateTimeFormat('en-AU', options).format(tmp)
@@ -37,17 +39,14 @@ function Post(props){
     }
     // deletes post
     function handleDelete() {
-        let posts = JSON.parse(localStorage.getItem('posts'))
         for (let i = 0; i < posts.length; i++){
             if (posts[i].time === props.post.time && posts[i].author === props.post.author){
                 posts.splice(i, 1)
-                localStorage.setItem('posts', JSON.stringify(posts))
+                localStorage.setItem('posts', JSON.stringify(tmpPosts))
+                setPosts([...posts])
                 break
             }
         }
-        // todo: fix this to not reload the whole page?
-        // eslint-disable-next-line no-restricted-globals
-        location.reload()
     }
 
     // edits post
@@ -56,21 +55,20 @@ function Post(props){
         const newVal = e.target[0].value
         if( !(newVal.length > 250 || newVal.length === 0) ){
             props.post.content = newVal
-            let posts = JSON.parse(localStorage.getItem('posts'))
             for (let i = 0; i < posts.length; i++){
                 if (posts[i].time === props.post.time && posts[i].author === props.post.author){
                     posts[i].content = newVal;
                     localStorage.setItem('posts', JSON.stringify(posts))
+                    setPosts(posts)
                     break
                 }
             }
             closeModal()
         }
-        // todo: State an error if the post doesn't go through validation
     }
 
     // adds the ability to delete/edit posts that was posted by the logged user
-    // todo: change this to and email as the name is not unique
+    // todo: change this to an email as the name is not unique
     if (props.user.name === props.post.author){
         postOptions =
             <div className={`post-options`}>

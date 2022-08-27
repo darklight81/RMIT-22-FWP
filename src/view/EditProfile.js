@@ -4,10 +4,35 @@ function EditProfile(props){
     const navigator = useNavigate()
     function handleSubmit(e) {
         e.preventDefault()
-        if (e.target[1].value === e.target[2].value){
+        if (e.target[1].value === e.target[2].value && props.user.password === e.target[1].value){
+            const newName = e.target[0].value
+
+            // change the name in posts
+            const posts = JSON.parse(localStorage.getItem('posts'))
+            for (let i = 0; i < posts.length; i++) {
+                if (posts[i].author === props.user.name){
+                    posts[i].author = newName
+                }
+            }
+
+            let users = JSON.parse(localStorage.getItem('users'))
+            for (let i = 0; i < users.length; i++){
+                if (props.user.email === users[i].email){
+                    users[i].name = newName
+                    localStorage.setItem('loggedUser', JSON.stringify(users[i]))
+                    props.setUser(users[i])
+                }
+            }
+
+            localStorage.setItem('users', JSON.stringify(users))
+            localStorage.setItem('posts', JSON.stringify(posts))
+
+
             navigator('/profile')
         }
-        // todo: Show cue that the password is not correct
+        else
+            document.getElementById('error').innerText = 'Passwords don\'t match!'
+        document.getElementById('error').innerText = 'Password is incorrect!'
     }
 
     return (

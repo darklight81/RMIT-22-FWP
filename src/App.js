@@ -6,24 +6,12 @@ import Routing from "./router/Routing";
 import {useEffect, useState} from "react";
 
 function App() {
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        password: '',
-        joined: ''
-    });
-    useEffect(() => {
-        if (localStorage.getItem('loggedUser')){
-            const loggedUser = JSON.parse(localStorage.getItem('loggedUser'))
-            setUser({password: loggedUser.password, email: loggedUser.email, name: loggedUser.name, joined: loggedUser.joined})
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const [user, setUser] = useState( JSON.parse(localStorage.getItem('loggedUser')));
   return (
     <div className="App">
         <BrowserRouter>
             <Header user={user} setUser={setUser}/>
-            <div className={`container Body mb-5 mt-5`}>
+            <div className={`container Body`}>
                 <Routing user={user} setUser={setUser}/>
             </div>
         </BrowserRouter>
