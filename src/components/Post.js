@@ -3,6 +3,7 @@ import {faPencil, faTrashCan} from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-modal";
 import {useContext, useState} from "react";
 import {PostsContext} from "./PostsContext";
+import "../css/PostForm.css"
 
 const modalStyle = {
     content: {
@@ -12,6 +13,8 @@ const modalStyle = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
+        width:500,
+        height: 300,
     },
 };
 
@@ -80,17 +83,20 @@ function Post(props){
                     style={modalStyle}
                     contentLabel="Delete Modal">
 
-                    <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Edit your post</h2>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)} className={`row justify-content-center`} >Edit Your Post</h2>
                     <form onSubmit={ e => handleEdit(e)}>
                         <div className={`row justify-content-center`}>
-                            <div className={`col-3`}>
+                            <div className={`col-4`}>
                                 <input type={`text`}/>
                             </div>
                         </div>
                         <div className={`row justify-content-center`}>
-                            <div className={`col-4`}>
-                                <button className="btn btn-primary mx-1" onClick={closeModal}>Cancel</button>
-                                <button type={`submit`} className="btn btn-primary mx-1">Edit</button>
+                        <div className={`col-1`}>
+                            <p></p>
+                            <button className="btn btn-primary  row justify-content-center " onClick={closeModal}>Cancel</button>
+                            <p></p>
+                            <button type={`submit`} className="btn btn-primary row justify-content-center">Edit</button>
+                                    
                             </div>
                         </div>
                     </form>
@@ -110,9 +116,11 @@ function Post(props){
                         <div className={'author'}>
                             <b>{props.post.author} </b>
                             {date}
-                            {postOptions}
-                        </div>
-                        {props.post.content}
+                            <p></p>
+                            
+                        </div> 
+                        <p className="content">{props.post.content}</p>
+                        {postOptions}
                     </div>
                 </div>
             </div>

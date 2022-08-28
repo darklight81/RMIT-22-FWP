@@ -101,7 +101,7 @@ function Profile(props){
                 </div>
                 <hr className={`solid`}/>
                 <div className={`row`}>
-                    <span className={`col-5 justify-content-lg-start`}> Joined: {date.getDate()}/{date.getMonth()}/{date.getFullYear()}</span>
+                    <span className={`col-5 justify-content-lg-start`}> Joined: {date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</span>
                 </div>
             </div>
         </div>

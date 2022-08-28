@@ -1,0 +1,11 @@
+
+nav a {
+    color:  #F2F2F2;
+    text-decoration: none;
+    text-align: center;
+
+}
+nav a:hover{
+    color: grey;
+    text-align: center;
+}
