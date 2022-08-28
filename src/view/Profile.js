@@ -59,7 +59,7 @@ function Profile(props){
 
         localStorage.setItem('posts', JSON.stringify(posts))
 
-        props.setUser({})
+        props.setUser(undefined)
         localStorage.removeItem('loggedUser')
         navigate('/')
     }
@@ -70,7 +70,7 @@ function Profile(props){
 
     return(
         <div className={`row justify-content-center mt-5`} id={`Modal`}>
-            <div className={`col-6 profile pt-3 pb-3 rounded-3 shadow p-3`}>
+            <div className={`col-6 profile pt-3 pb-3 rounded-3 shadow p-3 body`}>
                 <div className={`row`}>
                     <div className={`col-3 profile-pic`}>
                         <img className={`rounded-5`} src={require('../assets/avatar.jpg')} alt={`avatar`}/>

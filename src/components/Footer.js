@@ -2,8 +2,7 @@ import "../css/Footer.css"
 function Footer(){
     return(
         <div className={`footer`}>
-            <br></br>
-            <a className={`col-3 text-decoration-none text-light`} href={"/"}> Loop Agile     	&copy; 2022</a>
+            <div className={`col-12 text-light mt-4`}> Loop Agile &copy; 2022</div>
         </div>
     )
 }

@@ -57,7 +57,7 @@ function Authentication(props){
     }
 
     return(
-        <div className={`row justify-content-center`}>
+        <div className={`row justify-content-center mt-5`}>
             <form className={`col-4 pt-3 form-rectangle rounded-3 shadow p-3`} onSubmit={e => handleSubmit(e)}>
                 <div className="mb-3">
                     <input placeholder="Code from the SMS" className="form-control"/>

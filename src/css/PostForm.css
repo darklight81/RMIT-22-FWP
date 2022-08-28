@@ -1,4 +1,16 @@
 .content{
     font-size: 22px;
-    
+
+}
+
+#inputTag{
+    display: none;
+}
+
+.post-form {
+    background:#ddd;
+}
+
+label {
+    cursor: pointer;
 }

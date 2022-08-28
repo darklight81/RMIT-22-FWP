@@ -5,4 +5,5 @@
 
 .Body {
   background-color:  #F2F2F2;
+  min-height: 80vh;
 }

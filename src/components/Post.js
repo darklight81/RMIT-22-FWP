@@ -13,8 +13,8 @@ const modalStyle = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        width:500,
-        height: 300,
+        width:1000,
+        height: 200,
     },
 };
 
@@ -75,7 +75,7 @@ function Post(props){
     if (props.user.name === props.post.author){
         postOptions =
             <div className={`post-options`}>
-                <button type="button" className="btn btn-primary" onClick={openModal}><FontAwesomeIcon icon={faPencil}/> Edit </button>
+                <button type="button" className="btn btn-primary mx-1" onClick={openModal}><FontAwesomeIcon icon={faPencil}/> Edit </button>
                 <Modal
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}
@@ -83,25 +83,24 @@ function Post(props){
                     style={modalStyle}
                     contentLabel="Delete Modal">
 
-                    <h2 ref={(_subtitle) => (subtitle = _subtitle)} className={`row justify-content-center`} >Edit Your Post</h2>
+                    <h2 ref={(_subtitle) => (subtitle = _subtitle)} className={`row justify-content-center`} >Edit your post</h2>
                     <form onSubmit={ e => handleEdit(e)}>
-                        <div className={`row justify-content-center`}>
-                            <div className={`col-4`}>
-                                <input type={`text`}/>
+                        <div className={`row mb-3 justify-content-center`}>
+                            <div className={`col-4 d-flex justify-content-center`}>
+                                <input type={`text`} placeholder={'Edit text...'}/>
                             </div>
                         </div>
                         <div className={`row justify-content-center`}>
-                        <div className={`col-1`}>
-                            <p></p>
-                            <button className="btn btn-primary  row justify-content-center " onClick={closeModal}>Cancel</button>
-                            <p></p>
-                            <button type={`submit`} className="btn btn-primary row justify-content-center">Edit</button>
-                                    
+                            <div className={`col-1 d-flex justify-content-center`}>
+                                <button className="btn btn-primary" onClick={closeModal}>Cancel</button>
+                            </div>
+                            <div className={`col-1 d-flex justify-content-center`}>
+                            <button type={`submit`} className="btn btn-primary form-control">Edit</button>
                             </div>
                         </div>
                     </form>
                 </Modal>
-                <button type="button" className="btn btn-primary" onClick={handleDelete}><FontAwesomeIcon icon={faTrashCan} /> Delete </button>
+                <button type="button" className="btn btn-primary mx-1" onClick={handleDelete}><FontAwesomeIcon icon={faTrashCan} /> Delete </button>
             </div>
     }
 
@@ -117,8 +116,8 @@ function Post(props){
                             <b>{props.post.author} </b>
                             {date}
                             <p></p>
-                            
-                        </div> 
+
+                        </div>
                         <p className="content">{props.post.content}</p>
                         {postOptions}
                     </div>

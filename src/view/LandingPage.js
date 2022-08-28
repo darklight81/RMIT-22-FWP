@@ -7,7 +7,7 @@ function LandingPage(props) {
     let content = <div className={'row m-0 p-0'}>
         <img src={require('../assets/dashboard-background.jpg')} className={"img-fluid w-100"} alt="background" />
     </div>
-    if (props.user){
+    if (props.user && props.user.name){
         content =
             <PostsContext.Provider value={{posts, setPosts}}>
                 <div className={'mb-5 mt-5'}>
